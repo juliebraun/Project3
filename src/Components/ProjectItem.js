@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 class ProjectItem extends Component {
+  deleteProject(id) {
+    this.props.onDelete(id);
+  }
   render() {
     return (
       <li className="Project">
@@ -8,6 +11,12 @@ class ProjectItem extends Component {
         {this.props.project.priority}
         {this.props.project.instructions}
         {this.props.project.worker}
+        <a
+          href="#"
+          onClick={this.deleteProject.bind(this, this.props.project.id)}
+        >
+          X
+        </a>
       </li>
     );
   }

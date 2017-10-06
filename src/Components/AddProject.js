@@ -1,6 +1,13 @@
 import React, { Component } from "react";
+import uuid from "uuid";
 
 class AddProject extends Component {
+  constructor() {
+    super();
+    this.state = {
+      newProject: {}
+    };
+  }
   static defaultProps = {
     categories: [
       "Bubba Boy",
@@ -12,22 +19,40 @@ class AddProject extends Component {
     ]
   };
 
-  //   static defaultProps = {
-  //     priorities: [
-  //       "Morning 8AM-11AM",
-  //       "Afternoon 11AM-2PM",
-  //       "Late Afternoon 2PM-6PM"
-  //     ]
-  //   };
-
   handleSubmit(e) {
-    console.log("submitted");
+    if (this.refs.name.value === "") {
+      alert("Please enter a name for this job");
+    } else if (this.refs.location.value === "") {
+      alert("Please specify a location for this job");
+    } else if (this.refs.priority.value === "") {
+      alert("Please Select a priority");
+    } else if (this.refs.instructions.value === "") {
+      alert("Please specify instructions for this job");
+    } else if (this.refs.worker.value === "") {
+      alert("You must assign a worker");
+    } else {
+      this.setState(
+        {
+          newProject: {
+            id: uuid.v4(),
+            name: this.refs.name.value,
+            location: this.refs.location.value,
+            priority: this.refs.priority.value,
+            instructions: this.refs.instructions.value,
+            worker: this.refs.worker.value
+          }
+        },
+        function() {
+          this.props.addProject(this.state.newProject);
+        }
+      );
+    }
     e.preventDefault();
   }
   render() {
     let categoryOptions = this.props.categories.map(worker => {
       return (
-        <option key={worker} value="worker">
+        <option key={worker} value={worker}>
           {worker}
         </option>
       );
@@ -43,7 +68,7 @@ class AddProject extends Component {
     return (
       <div>
         <h3>Create New Job</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>Job Name</label>
             <br />
@@ -58,7 +83,7 @@ class AddProject extends Component {
             <label>Priority</label>
             <br />
             {/* <select ref="priority">{priorityOptions}</select> */}
-            <input type="text" ref="location" />
+            <input type="text" ref="priority" />
           </div>
           <div>
             <label>Instructions</label>
