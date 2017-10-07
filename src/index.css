@@ -2,4 +2,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(255, 0, 255);
+}
+
+.header {
+  text-align: center;
+}
+
+.googleMap {
+  height: 100%;
 }

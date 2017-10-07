@@ -14,16 +14,7 @@ class App extends Component {
 
   componentWillMount() {
     this.setState({
-      projects: [
-        {
-          id: uuid.v4(),
-          name: "Job Name",
-          location: "Location",
-          priority: "Priority",
-          instructions: "Instructions",
-          worker: "Assign Worker"
-        }
-      ]
+      projects: []
     });
   }
 
