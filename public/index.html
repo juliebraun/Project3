@@ -15,7 +15,7 @@
 
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="../src/index.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
 
 </head>
 
@@ -23,21 +23,7 @@
   <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <h1>Dispatch Me</h1>
   </div>
-  <div class="navJobs col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Current Jobs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Add New Job</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">View Completed Jobs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">View Deleted Jobs</a>
-      </li>
-    </ul>
+  <div id="nav">>
   </div>
   <div class="content col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" id="root"></div>
   <div="row">
@@ -45,7 +31,7 @@
       <p id="directions">Enter location:</p>
       <input type="text" placeholder="Start Location" id="autoLocate">
     </form>
-    <div class="googleMap col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12" style="height:500px" id="map"></div>
+    <div class="googleMap col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" style="height:500px" id="map"></div>
     </div>
     <script>
       var map, infoWindow;
