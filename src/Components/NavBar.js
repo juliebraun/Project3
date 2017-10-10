@@ -59,6 +59,16 @@ class SidebarExample extends Component {
         path: "/deletedprojects",
         sidebar: () => <div>Deleted Projects</div>,
         main: () => <Projects onDelete={this.handleDeleteProject.bind(this)} />
+      },
+      {
+        // path: "/workers",
+        // sidebar: () => <div>Add/Delete Workers</div>,
+        // main: () => (
+        //   <Workers
+        //     addWorker={this.handleAddWorker.bind(this)}
+        //     deleteWorker={this.handleDeleteWorker.bind(this)}
+        //   />
+        // )
       }
     ];
     return (
