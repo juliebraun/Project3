@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import uuid from "uuid";
+import { Col, Row } from "react-bootstrap";
 
 class AddProject extends Component {
   constructor() {
@@ -24,9 +25,10 @@ class AddProject extends Component {
       alert("Please enter a name for this job");
     } else if (this.refs.location.value === "") {
       alert("Please specify a location for this job");
-    } else if (this.refs.priority.value === "") {
-      alert("Please Select a priority");
     } else if (this.refs.instructions.value === "") {
+      // else if (this.refs.priority.value === "") {
+      //   alert("Please Select a priority");
+      // }
       alert("Please specify instructions for this job");
     } else if (this.refs.worker.value === "") {
       alert("You must assign a worker");
@@ -37,7 +39,7 @@ class AddProject extends Component {
             id: uuid.v4(),
             name: this.refs.name.value,
             location: this.refs.location.value,
-            priority: this.refs.priority.value,
+            // priority: this.refs.priority.value,
             instructions: this.refs.instructions.value,
             worker: this.refs.worker.value
           }
@@ -67,38 +69,42 @@ class AddProject extends Component {
     // });
     return (
       <div>
-        <h3>Create New Job</h3>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <div>
-            <label>Job Name</label>
-            <br />
-            <input type="text" ref="name" />
-          </div>
-          <div>
-            <label>Location</label>
-            <br />
-            <input type="text" ref="location" />
-          </div>
-          <div>
+        <Row bsClass="row">
+          <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+            <h2>Create New Job</h2>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <div>
+                <label>Job Name</label>
+                <br />
+                <input type="text" ref="name" />
+              </div>
+              <div>
+                <label>Location</label>
+                <br />
+                <input type="text" ref="location" />
+              </div>
+              {/* <div>
             <label>Priority</label>
             <br />
-            {/* <select ref="priority">{priorityOptions}</select> */}
+            <select ref="priority">{priorityOptions}</select>
             <input type="text" ref="priority" />
-          </div>
-          <div>
-            <label>Instructions</label>
-            <br />
-            <input type="text" ref="instructions" />
-          </div>
-          <div>
-            <label>Assign Worker</label>
-            <br />
-            <select ref="worker">{categoryOptions}</select>
-          </div>
-          <br />
-          <br />
-          <input type="submit" value="Assign" />
-        </form>
+          </div> */}
+              <div>
+                <label>Instructions</label>
+                <br />
+                <input type="text" ref="instructions" />
+              </div>
+              <div>
+                <label>Assign Worker</label>
+                <br />
+                <select ref="worker">{categoryOptions}</select>
+              </div>
+              <br />
+              <br />
+              <input type="submit" value="Assign" />
+            </form>
+          </Col>
+        </Row>
       </div>
     );
   }

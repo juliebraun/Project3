@@ -5,7 +5,14 @@ body {
 }
 
 .header {
-  text-align: center;
+  text-align: left;
+  background-image: url("https://www.morrowsheppard.com/wp-content/uploads/2016/03/banner_truck-1402x289.jpg");
+  height: 33%;
+  opacity: 0.9;
+  font-family: "Faster One", cursive;
+}
+.h1 {
+  font-size: 96px;
 }
 
 #map {
@@ -22,7 +29,7 @@ body {
 }
 #description {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 200;
 }
 
@@ -47,35 +54,36 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   background-color: #fff;
   font-family: Roboto;
-  width: 70%;
+  width: 75%;
 }
 
 #pac-container {
-  padding-bottom: 12px;
+  padding-bottom: 7px;
   margin-right: 12px;
 }
 
 .pac-controls {
   display: inline-block;
-  padding: 5px 11px;
+  padding: 3px 5px;
+  font-size: 8px;
 }
 
 .pac-controls label {
   font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-  margin: 3px;
+  font-size: 5px;
+  font-weight: 200;
+  margin: 2px;
 }
 
 #pac-input {
   background-color: #fff;
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 300;
   margin-left: 12px;
-  padding: 0 11px 0 13px;
+  padding: 0 6px 0 7px;
   text-overflow: ellipsis;
-  width: 95%;
+  width: 85%;
   margin-top: 3px;
 }
 
@@ -86,7 +94,7 @@ body {
 #title {
   color: #fff;
   background-color: #4d90fe;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   padding: 6px 12px;
 }

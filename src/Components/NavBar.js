@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddProject from "./AddProject";
 import ProjectItem from "./ProjectItem";
 import Projects from "./Projects";
+import { Nav, NavItem, Col, Row } from "react-bootstrap";
+
 // Each logical "route" has two components, one for
 // the sidebar and one for the main area. We want to
 // render both of them in different places when the
@@ -42,7 +44,7 @@ class SidebarExample extends Component {
       {
         path: "/",
         exact: true,
-        sidebar: () => <div>Existing Projects</div>,
+        // sidebar: () => <div>Existing Projects</div>,
         main: () => (
           <Projects
             projects={this.state.projects}
@@ -52,12 +54,12 @@ class SidebarExample extends Component {
       },
       {
         path: "/createproject",
-        sidebar: () => <div>Create Project</div>,
+        // sidebar: () => <div>Create Project</div>,
         main: () => <AddProject addProject={this.handleAddProject.bind(this)} />
       },
       {
         path: "/deletedprojects",
-        sidebar: () => <div>Deleted Projects</div>,
+        // sidebar: () => <div>Deleted Projects</div>,
         main: () => <Projects onDelete={this.handleDeleteProject.bind(this)} />
       },
       {
@@ -74,41 +76,33 @@ class SidebarExample extends Component {
     return (
       <Router>
         <div style={{ display: "flex" }}>
-          <div
-            style={{
-              padding: "10px",
-              width: "40%",
-              background: "#f0f0f0"
-            }}
-          >
-            <ul style={{ listStyleType: "none", padding: 0 }}>
-              <li>
-                <Link to="/">View Current Jobs</Link>
-              </li>
-              <li>
-                <Link to="/createproject">Create New Job</Link>
-              </li>
-              <li>
-                <Link to="/deletedprojects">Deleted Jobs</Link>
-              </li>
-            </ul>
-
-            {routes.map((route, index) => (
-              // You can render a <Route> in as many places
-              // as you want in your app. It will render along
-              // with any other <Route>s that also match the URL.
-              // So, a sidebar or breadcrumbs or anything else
-              // that requires you to render multiple things
-              // in multiple places at the same URL is nothing
-              // more than multiple <Route>s.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.sidebar}
-              />
-            ))}
+          <div>
+            <Row bsClass="row">
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <Nav bsStyle="tabs">
+                  <NavItem href="/">View Current Jobs</NavItem>
+                  <NavItem href="/createproject">Create New Jobs</NavItem>
+                  <NavItem href="/deletedprojects">View Deleted Jobs</NavItem>
+                  <NavItem href="/workers">Workers</NavItem>
+                </Nav>
+              </Col>
+            </Row>
           </div>
+          {routes.map((route, index) => (
+            // You can render a <Route> in as many places
+            // as you want in your app. It will render along
+            // with any other <Route>s that also match the URL.
+            // So, a sidebar or breadcrumbs or anything else
+            // that requires you to render multiple things
+            // in multiple places at the same URL is nothing
+            // more than multiple <Route>s.
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              component={route.sidebar}
+            />
+          ))}
 
           <div style={{ flex: 1, padding: "10px" }}>
             {routes.map((route, index) => (
