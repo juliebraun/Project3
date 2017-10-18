@@ -4,6 +4,7 @@ import AddProject from "./AddProject";
 import ProjectItem from "./ProjectItem";
 import Projects from "./Projects";
 import { Nav, NavItem, Col, Row } from "react-bootstrap";
+import LoginScreen from "./Loginscreen";
 
 // Each logical "route" has two components, one for
 // the sidebar and one for the main area. We want to
@@ -42,7 +43,7 @@ class SidebarExample extends Component {
   render() {
     const routes = [
       {
-        path: "/",
+        path: "/home",
         exact: true,
         // sidebar: () => <div>Existing Projects</div>,
         main: () => (
@@ -80,7 +81,7 @@ class SidebarExample extends Component {
             <Row bsClass="row">
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Nav bsStyle="tabs">
-                  <NavItem href="/">View Current Jobs</NavItem>
+                  <NavItem href="/home">View Current Jobs</NavItem>
                   <NavItem href="/createproject">Create New Jobs</NavItem>
                   <NavItem href="/deletedprojects">View Deleted Jobs</NavItem>
                   <NavItem href="/workers">Workers</NavItem>
