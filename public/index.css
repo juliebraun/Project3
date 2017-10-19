@@ -98,3 +98,13 @@ body {
   font-weight: 500;
   padding: 6px 12px;
 }
+
+.loginscreen {
+  text-align: center;
+}
+.button {
+  background-color: #ed2917 !important;
+}
+.loginDispatch {
+  font-family: "Faster One", cursive;
+}

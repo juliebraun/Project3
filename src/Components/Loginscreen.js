@@ -1,16 +1,30 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
-// import NavBar from "NavBar";
+import AppBar from "material-ui/AppBar";
 import Login from "./Login";
 import Register from "./Register";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import { red900 } from "material-ui/styles/colors";
+
+const muiTheme = getMuiTheme({
+  fontFamily: "Abril Fatface",
+  
+  palette: {
+    primary1Color: red900
+  },
+  appBar: {
+    height: 100
+  }
+});
+
 class Loginscreen extends Component {
   constructor(props) {
     super(props);
     var loginButtons = [];
     loginButtons.push(
       <div>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <div>
             <RaisedButton
               label={"Register as Supervisor"}
@@ -20,7 +34,7 @@ class Loginscreen extends Component {
             />
           </div>
         </MuiThemeProvider>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <div>
             <RaisedButton
               label={"Register as Worker"}
@@ -70,7 +84,7 @@ class Loginscreen extends Component {
       var loginButtons = [];
       loginButtons.push(
         <div>
-          <MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
             <div>
               <RaisedButton
                 label={"Login"}
@@ -93,7 +107,7 @@ class Loginscreen extends Component {
         loginButtons = [];
       loginButtons.push(
         <div>
-          <MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
             <div>
               <RaisedButton
                 label={"Register as Supervisor"}
@@ -103,7 +117,7 @@ class Loginscreen extends Component {
               />
             </div>
           </MuiThemeProvider>
-          <MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
             <div>
               <RaisedButton
                 label={"Register as Worker"}

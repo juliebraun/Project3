@@ -5,6 +5,19 @@ import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import axios from "axios";
 import Login from "./Login";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import { red900 } from "material-ui/styles/colors";
+
+const muiTheme = getMuiTheme({
+  fontFamily: "Abril Fatface",
+
+  palette: {
+    primary1Color: red900
+  },
+  appBar: {
+    height: 100
+  }
+});
 
 class Register extends Component {
   constructor(props) {
@@ -80,9 +93,9 @@ class Register extends Component {
     }
     return (
       <div>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            <AppBar title="Register" />
+            <AppBar title="Register For Dispatch" />
             <TextField
               hintText="Enter your First Name"
               floatingLabelText="First Name"

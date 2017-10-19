@@ -6,15 +6,29 @@ import TextField from "material-ui/TextField";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import axios from "axios";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import { red900 } from "material-ui/styles/colors";
 // import UploadScreen from "./UploadScreen";
 // import UploadPage from "./UploadPage";
+
+const muiTheme = getMuiTheme({
+  fontFamily: "Abril Fatface",
+
+  palette: {
+    primary1Color: red900
+  },
+  appBar: {
+    height: 100
+  }
+});
+
 var apiBaseUrl = "http://localhost:4000/api/";
 class Login extends Component {
   constructor(props) {
     super(props);
     var localloginComponent = [];
     localloginComponent.push(
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <TextField
             hintText="Enter your User ID"
@@ -35,6 +49,7 @@ class Login extends Component {
             label="Submit"
             primary={true}
             style={style}
+            className="button"
             onClick={event => this.handleClick(event)}
           />
         </div>
@@ -55,7 +70,7 @@ class Login extends Component {
         console.log("in supervisor componentWillMount");
         var localloginComponent = [];
         localloginComponent.push(
-          <MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
             <div>
               <TextField
                 hintText="Enter your User ID"
@@ -76,6 +91,7 @@ class Login extends Component {
                 label="Submit"
                 primary={true}
                 style={style}
+                className="button"
                 onClick={event => this.handleClick(event)}
               />
             </div>
@@ -90,7 +106,7 @@ class Login extends Component {
         console.log("in worker componentWillMount");
         var localloginComponent = [];
         localloginComponent.push(
-          <MuiThemeProvider>
+          <MuiThemeProvider muiTheme={muiTheme}>
             <div>
               <TextField
                 hintText="Enter your Worker ID"
@@ -111,6 +127,7 @@ class Login extends Component {
                 label="Submit"
                 primary={true}
                 style={style}
+                className="button"
                 onClick={event => this.handleClick(event)}
               />
             </div>
@@ -167,7 +184,7 @@ class Login extends Component {
       var localloginComponent = [];
       loginRole = "supervisor";
       localloginComponent.push(
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <div>
             <TextField
               hintText="Enter your Supervisor ID"
@@ -188,6 +205,7 @@ class Login extends Component {
               label="Submit"
               primary={true}
               style={style}
+              className="button"
               onClick={event => this.handleClick(event)}
             />
           </div>
@@ -197,7 +215,7 @@ class Login extends Component {
       var localloginComponent = [];
       loginRole = "worker";
       localloginComponent.push(
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <div>
             <TextField
               hintText="Enter your Worker ID"
@@ -218,6 +236,7 @@ class Login extends Component {
               label="Submit"
               primary={true}
               style={style}
+              className="button"
               onClick={event => this.handleClick(event)}
             />
           </div>
@@ -232,11 +251,11 @@ class Login extends Component {
   }
   render() {
     return (
-      <div>
-        <MuiThemeProvider>
-          <AppBar title="Login" />
+      <div className="loginDispatch">
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <AppBar title="Login To Dispatch" />
         </MuiThemeProvider>
-        <MuiThemeProvider>
+        {/* <MuiThemeProvider muiTheme={muiTheme}>
           <div>
             <p>Login as:</p>
             <DropDownMenu
@@ -247,15 +266,15 @@ class Login extends Component {
               <MenuItem value={2} primaryText="Worker" />
             </DropDownMenu>
           </div>
-        </MuiThemeProvider>
+        </MuiThemeProvider> */}
         {this.state.loginComponent}
       </div>
     );
   }
 }
 
+export default Login;
+
 const style = {
   margin: 15
 };
-
-export default Login;

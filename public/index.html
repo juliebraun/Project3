@@ -30,50 +30,43 @@
   </head>
 
   <body>
-    <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <!-- <div class="header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <h1>Dispatch</h1>
-    </div>
-    <div class="col-xl-7 col lg-7 col-md-7 col-sm-12 col-xs-12">
+    </div> -->
+    <!-- <div class="col-xl-7 col lg-7 col-md-7 col-sm-12 col-xs-12">
       <div id="nav">
+      </div> -->
+    <div class="col xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div id="root"></div>
+    </div>
+    </div>
+    <!-- <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">
+          Search Location
+        </div>
+        <div id="type-selector" class="pac-controls">
+          <input type="radio" name="type" id="changetype-all" checked="checked">
+
+          <input type="radio" name="type" id="changetype-establishment">
+
+          <input type="radio" name="type" id="changetype-address">
+
+          <input type="radio" name="type" id="changetype-geocode">
+        </div>
+   
       </div>
-      <div class="col xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div id="root"></div>
+      <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Enter a location">
       </div>
     </div>
-      <div class="pac-card" id="pac-card">
-        <div>
-          <div id="title">
-            Search Location
-          </div>
-          <div id="type-selector" class="pac-controls">
-            <input type="radio" name="type" id="changetype-all" checked="checked">
-            <!-- <label for="changetype-all">All</label> -->
 
-            <input type="radio" name="type" id="changetype-establishment">
-            <!-- <label for="changetype-establishment">Establishments</label> -->
-
-            <input type="radio" name="type" id="changetype-address">
-            <!-- <label for="changetype-address">Addresses</label> -->
-
-            <input type="radio" name="type" id="changetype-geocode">
-            <!-- <label for="changetype-geocode">Geocodes</label> -->
-          </div>
-          <!-- <div id="strict-bounds-selector" class="pac-controls">
-        <input type="checkbox" id="use-strict-bounds" value="">
-        <label for="use-strict-bounds">Strict Bounds</label>
-      </div> -->
-        </div>
-        <div id="pac-container">
-          <input id="pac-input" type="text" placeholder="Enter a location">
-        </div>
-      </div>
-      
-      <div id="map"></div>
-      <div id="infowindow-content">
-        <img src="" width="16" height="16" id="place-icon">
-        <span id="place-name" class="title"></span><br>
-        <span id="place-address"></span>
-      </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name" class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
 
     <script>
       // This example requires the Places library. Include the libraries=places
@@ -168,7 +161,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr13_nmfhDD2g497AMq-g00dUDArQosIc&libraries=places&callback=initMap"
       async defer></script>
 
-    </script>
+    </script> -->
   </body>
 
 </html>
