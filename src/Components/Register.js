@@ -33,7 +33,7 @@ class Register extends Component {
     console.log("nextProps", nextProps);
   }
   handleClick(event, role) {
-    var apiBaseUrl = "http://localhost:4000/api/";
+    var apiBaseUrl = "http://localhost:3001";
     // console.log("values in register handler",role);
     var self = this;
     //To be done:check for empty values before hitting submit
@@ -44,17 +44,17 @@ class Register extends Component {
       this.state.password.length > 0
     ) {
       var payload = {
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        userid: this.state.email,
+        firstname: this.state.first_name,
+        lastname: this.state.last_name,
+        username: this.state.email,
         password: this.state.password,
-        role: role
+        type: role
       };
       axios
-        .post(apiBaseUrl + "/register", payload)
+        .post(apiBaseUrl + "/signup", payload)
         .then(function(response) {
           console.log(response);
-          if (response.data.code === 200) {
+          if (response.status === 200) {
             //  console.log("registration successfull");
             var loginscreen = [];
             loginscreen.push(
