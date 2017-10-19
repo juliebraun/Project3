@@ -27,6 +27,7 @@ var apiBaseUrl = "http://localhost:3001";
 
 class Login extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     var localloginComponent = [];
     localloginComponent.push(
@@ -143,6 +144,11 @@ class Login extends Component {
       }
     }
   }
+
+  //   loginSuccess() {
+  //     this.props.loginHandler();
+  //   }
+
   handleClick(event) {
     var self = this;
     var payload = {
@@ -150,12 +156,14 @@ class Login extends Component {
       password: this.state.password,
       type: this.state.loginRole
     };
+
     axios
       .post(apiBaseUrl + "/login", payload)
-      .then(function(response) {
+      .then(response => {
         console.log(response);
         if (response.status == 200) {
           console.log("Login successfull");
+          this.props.handleLogin();
           //   var uploadScreen = [];
           //   uploadScreen.push(
           //     <UploadPage

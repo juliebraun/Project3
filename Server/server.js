@@ -1,3 +1,6 @@
+//this goes back in .env file
+//MONGO_DB_URI=mongodb://heroku_hf3rlp6v:aoddqd5vddtgvfglprlkof1vi5@ds121495.mlab.com:21495/heroku_hf3rlp6v
+
 require("dotenv").config();
 var express = require("express");
 var mongoose = require("mongoose");

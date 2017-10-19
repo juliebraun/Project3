@@ -9,7 +9,7 @@ import { red900 } from "material-ui/styles/colors";
 
 const muiTheme = getMuiTheme({
   fontFamily: "Abril Fatface",
-  
+
   palette: {
     primary1Color: red900
   },
@@ -21,6 +21,8 @@ const muiTheme = getMuiTheme({
 class Loginscreen extends Component {
   constructor(props) {
     super(props);
+    console.log("loginscreen props");
+    console.log(props);
     var loginButtons = [];
     loginButtons.push(
       <div>
@@ -60,7 +62,11 @@ class Loginscreen extends Component {
   componentWillMount() {
     var loginscreen = [];
     loginscreen.push(
-      <Login parentContext={this} appContext={this.props.appContext} />
+      <Login
+        parentContext={this}
+        appContext={this.props.appContext}
+        handleLogin={this.props.loginHandler}
+      />
     );
     var loginmessage = "Not registered yet, Register Now";
     this.setState({
@@ -134,6 +140,7 @@ class Loginscreen extends Component {
           parentContext={this}
           appContext={this.props.appContext}
           role={userRole}
+          handleLogin={this.props.loginHandler}
         />
       );
       loginmessage = "Not Registered yet.Go to registration";

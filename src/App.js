@@ -24,24 +24,44 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginPage: []
+      loginPage: [],
+      isLoggedIn: false
       // uploadScreen: []
     };
   }
+
+  handleLogin() {
+    console.log("app level login success");
+    this.setState({ isLoggedIn: true });
+  }
+
   componentWillMount() {
     var loginPage = [];
-    loginPage.push(<Loginscreen parentContext={this} />);
+    loginPage.push(
+      <Loginscreen
+        parentContext={this}
+        loginHandler={this.handleLogin.bind(this)}
+      />
+    );
     this.setState({
       loginPage: loginPage
     });
   }
   render() {
-    return (
-      <div className="App">
-        {this.state.loginPage}
-        {/* {this.state.uploadScreen} */}
-      </div>
-    );
+    if (this.state.isLoggedIn) {
+      return (
+        <div className="App">
+          <NavBar />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          {this.state.loginPage}
+          {/* {this.state.uploadScreen} */}
+        </div>
+      );
+    }
   }
 }
 const style = {
