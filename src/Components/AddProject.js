@@ -6,8 +6,12 @@ class AddProject extends Component {
   constructor() {
     super();
     this.state = {
-      newProject: {}
+      worker: "Bubba Boy",
+      jobName: "",
+      location: "",
+      instructions: ""
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   static defaultProps = {
     categories: [
@@ -33,40 +37,35 @@ class AddProject extends Component {
     } else if (this.refs.worker.value === "") {
       alert("You must assign a worker");
     } else {
-      this.setState(
-        {
-          newProject: {
-            id: uuid.v4(),
-            name: this.refs.name.value,
-            location: this.refs.location.value,
-            // priority: this.refs.priority.value,
-            instructions: this.refs.instructions.value,
-            worker: this.refs.worker.value
-          }
+      console.log("what is our new job  ", this.state);
+      fetch("/api/job", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
         },
-        function() {
-          this.props.addProject(this.state.newProject);
-        }
-      );
+        body: JSON.stringify(this.state)
+      })
+        .then(data => data.json())
+        .then(response => {
+          console.log("we got a success post", response);
+        })
+        .catch(err => {
+          console.log("errrrrr", err);
+        });
     }
     e.preventDefault();
   }
-  render() {
-    let categoryOptions = this.props.categories.map(worker => {
-      return (
-        <option key={worker} value={worker}>
-          {worker}
-        </option>
-      );
-    });
 
-    // let priorityOptions = this.props.priorities.map(priority => {
-    //   return (
-    //     <option key={priority} value="priority">
-    //       {priority}
-    //     </option>
-    //   );
-    // });
+  handleInputChange(e) {
+    console.log("input change ", e.target.value, e.target.name);
+    const prop = e.target.name;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    this.setState({ [prop]: value });
+  }
+
+  render() {
+    console.log("I'm a state", this.state);
     return (
       <div>
         <Row bsClass="row">
@@ -76,12 +75,24 @@ class AddProject extends Component {
               <div>
                 <label>Job Name</label>
                 <br />
-                <input type="text" ref="name" />
+                <input
+                  name="jobName"
+                  type="text"
+                  ref="name"
+                  value={this.state.jobName}
+                  onChange={this.handleInputChange}
+                />
               </div>
               <div>
                 <label>Location</label>
                 <br />
-                <input type="text" ref="location" />
+                <input
+                  name="location"
+                  type="text"
+                  ref="location"
+                  value={this.state.location}
+                  onChange={this.handleInputChange}
+                />
               </div>
               {/* <div>
             <label>Priority</label>
@@ -92,12 +103,32 @@ class AddProject extends Component {
               <div>
                 <label>Instructions</label>
                 <br />
-                <input type="text" ref="instructions" />
+                <input
+                  name="instructions"
+                  type="text"
+                  ref="instructions"
+                  value={this.state.instructions}
+                  onChange={this.handleInputChange}
+                />
               </div>
               <div>
                 <label>Assign Worker</label>
                 <br />
-                <select ref="worker">{categoryOptions}</select>
+                <select
+                  name="worker"
+                  style={{ display: "block" }}
+                  ref="worker"
+                  value={this.state.worker}
+                  onChange={this.handleInputChange}
+                >
+                  {this.props.categories.map(worker => {
+                    return (
+                      <option key={worker} value={worker}>
+                        {worker}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <br />
               <br />

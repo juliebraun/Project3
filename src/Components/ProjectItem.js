@@ -11,7 +11,7 @@ class ProjectItem extends Component {
         <Card
           className="blue-grey darken-1"
           textClassName="white-text"
-          title={this.props.project.name}
+          title={this.props.project.jobName}
           reveal={
             <li className="Project">
               {this.props.project.location}

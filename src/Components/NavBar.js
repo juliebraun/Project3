@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import AddProject from "./AddProject";
 import ProjectItem from "./ProjectItem";
 import Projects from "./Projects";
@@ -37,8 +37,6 @@ class SidebarExample extends Component {
     projects.splice(index, 1);
     this.setState({ projects: projects });
   }
-
-  //code ends for help
 
   render() {
     const routes = [
@@ -81,10 +79,10 @@ class SidebarExample extends Component {
             <Row bsClass="row">
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Nav bsStyle="tabs">
-                  <NavItem href="/home">View Current Jobs</NavItem>
-                  <NavItem href="/createproject">Create New Jobs</NavItem>
-                  <NavItem href="/deletedprojects">View Deleted Jobs</NavItem>
-                  <NavItem href="/workers">Workers</NavItem>
+                  <NavLink to="/home">View Current Jobs</NavLink>
+                  <NavLink to="/createproject">Create New Jobs</NavLink>
+                  <NavLink to="/deletedprojects">View Deleted Jobs</NavLink>
+                  <NavLink to="/workers">Workers</NavLink>
                 </Nav>
               </Col>
             </Row>

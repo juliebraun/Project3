@@ -1,16 +1,18 @@
 //this goes back in .env file
 //MONGO_DB_URI=mongodb://heroku_hf3rlp6v:aoddqd5vddtgvfglprlkof1vi5@ds121495.mlab.com:21495/heroku_hf3rlp6v
 
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
 var passport = require("passport");
 var expressSession = require("express-session");
-
+var jobRouter = require("./routes/job");
 let app = express();
-
+mongoose.Promise = require("bluebird");
 var options = {
   usemongoClient: true,
   promiseLibrary: require("bluebird")
@@ -59,13 +61,13 @@ app.use(
     saveUninitialized: true
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-require("./routes/passportroutes.js")(app, passport);
+// require("./routes/passportroutes.js")(app, passport);
 
 app.use(express.static("public"));
-
+app.use("/api/job", jobRouter);
 app.get("*", function(req, res) {
   res.json({ Hello: "World" });
 });

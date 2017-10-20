@@ -48,7 +48,8 @@ class App extends Component {
     });
   }
   render() {
-    if (this.state.isLoggedIn) {
+    if (true) {
+      //this.state.isLoggedIn
       return (
         <div className="App">
           <NavBar />
