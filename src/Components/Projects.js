@@ -19,8 +19,10 @@ class Projects extends Component {
         console.log("errrrr", err);
       });
   }
-  deleteProject(id) {
-    this.props.onDelete(id);
+  //id times 3 where jobname should be
+  deleteProject(jobName) {
+    this.props.onDelete(jobName);
+    console.log(jobName);
   }
   render() {
     let projectItems;
@@ -28,11 +30,14 @@ class Projects extends Component {
       projectItems = this.state.jobs.map(project => {
         // console.log(project);
         return (
-          <ProjectItem
-            onDelete={this.deleteProject.bind(this)}
-            key={project.name}
-            project={project}
-          />
+          <div>
+            <ProjectItem
+              onDelete={this.deleteProject.bind(this)}
+              key={project.name}
+              project={project}
+            />
+            <input className="assignButton" type="submit" value="Dispatch!" />;
+          </div>
         );
       });
     }

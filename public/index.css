@@ -108,3 +108,61 @@ body {
 .loginDispatch {
   font-family: "Faster One", cursive;
 }
+
+img {
+  width: 260px;
+  height: 40px;
+  margin: 20px;
+}
+.navbarStyle {
+  height: 100%;
+  margin-top: 100px;
+  font-size: 20px;
+  display: inline-grid;
+}
+.homeLink {
+  margin-left: 20px;
+  color: red;
+  /* margin-bottom: 20px; */
+}
+.createjobLink {
+  margin-left: 20px;
+  color: red;
+
+  /* margin-bottom: 20px; */
+}
+.workersLink {
+  margin-left: 20px;
+  color: red;
+
+  /* margin-bottom: 20px; */
+}
+
+.assignButton {
+  width: 200px;
+  height: 40px;
+}
+
+.newjobHeader {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+.newjobForm {
+  background: #f2f2f4;
+  padding: 20px;
+  border: solid;
+  border: outset;
+  padding-bottom: 40px;
+}
+.newjobForm label {
+  font-size: 14px;
+}
+.newjobLabels {
+  font-size: 30px;
+}
+.projectItem {
+  background: #f2f2f4;
+  border: solid;
+  border: outset;
+}

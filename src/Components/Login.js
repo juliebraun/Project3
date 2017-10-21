@@ -22,7 +22,6 @@ const muiTheme = getMuiTheme({
   }
 });
 
-// var apiBaseUrl = "http://localhost:4000/api/";
 var apiBaseUrl = "http://localhost:3001";
 
 class Login extends Component {
@@ -144,10 +143,9 @@ class Login extends Component {
       }
     }
   }
-
-  //   loginSuccess() {
-  //     this.props.loginHandler();
-  //   }
+  // loginSuccess() {
+  //   this.props.loginHandler();
+  // }
 
   handleClick(event) {
     var self = this;
@@ -164,17 +162,21 @@ class Login extends Component {
         if (response.status == 200) {
           console.log("Login successfull");
           this.props.handleLogin();
-          //   var uploadScreen = [];
-          //   uploadScreen.push(
-          //     <UploadPage
-          //       appContext={self.props.appContext}
-          //       role={self.state.loginRole}
-          //     />
-          //   );
-          //   self.props.appContext.setState({
-          //     loginPage: [],
-          //     uploadScreen: uploadScreen
-          //   });
+          //comment out text below to disable login screen
+
+          // var uploadScreen = [];
+          // uploadScreen.push(
+          //   <UploadPage
+          //     appContext={self.props.appContext}
+          //     role={self.state.loginRole}
+          //   />
+          // );
+          // self.props.appContext.setState({
+          //   loginPage: [],
+          //   uploadScreen: uploadScreen
+          // });
+
+          //comment out stops here
         } else if (response.status == 204) {
           console.log("Username password do not match");
           alert(response.data.success);

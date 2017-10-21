@@ -5,11 +5,7 @@ import ProjectItem from "./ProjectItem";
 import Projects from "./Projects";
 import { Nav, NavItem, Col, Row } from "react-bootstrap";
 import LoginScreen from "./Loginscreen";
-
-// Each logical "route" has two components, one for
-// the sidebar and one for the main area. We want to
-// render both of them in different places when the
-// path matches the current URL.
+import Logo from "../Dispatchlogo.PNG";
 
 class SidebarExample extends Component {
   constructor() {
@@ -75,18 +71,27 @@ class SidebarExample extends Component {
     return (
       <Router>
         <div style={{ display: "flex" }}>
-          <div>
-            <Row bsClass="row">
-              <Col xs={12} sm={12} md={12} lg={12}>
-                <Nav bsStyle="tabs">
-                  <NavLink to="/home">View Current Jobs</NavLink>
-                  <NavLink to="/createproject">Create New Jobs</NavLink>
-                  <NavLink to="/deletedprojects">View Deleted Jobs</NavLink>
-                  <NavLink to="/workers">Workers</NavLink>
-                </Nav>
-              </Col>
-            </Row>
-          </div>
+          <Col>
+            <div>
+              <section className="dispatchLogo">
+                <img src={Logo} />
+              </section>
+            </div>
+            <div className="navbarStyle">
+              {/* <Nav bsStyle="tabs"> */}
+              <NavLink className="homeLink" to="/home">
+                View Current Jobs
+              </NavLink>
+              <NavLink className="createjobLink" to="/createproject">
+                Create New Jobs
+              </NavLink>
+              {/* <NavLink to="/deletedprojects">View Deleted Jobs</NavLink> */}
+              <NavLink className="workersLink" to="/workers">
+                Workers
+              </NavLink>
+              {/* </Nav> */}
+            </div>
+          </Col>
           {routes.map((route, index) => (
             // You can render a <Route> in as many places
             // as you want in your app. It will render along

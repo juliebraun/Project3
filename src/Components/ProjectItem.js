@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Col, Card } from "react-materialize";
 
+// id where jobname is
 class ProjectItem extends Component {
-  deleteProject(id) {
-    this.props.onDelete(id);
+  deleteProject(jobName) {
+    this.props.onDelete(jobName);
+    console.log(jobName);
   }
   render() {
     return (
       <Col s={12} m={12} l={12}>
         <Card
-          className="blue-grey darken-1"
+          className="projectItem"
           textClassName="white-text"
           title={this.props.project.jobName}
           reveal={
@@ -21,10 +23,16 @@ class ProjectItem extends Component {
             </li>
           }
         >
+          {/* id where job name is */}
           <p>
-            <a href="#">
-              onClick={this.deleteProject.bind(this, this.props.project.id)}
-              > X
+            <a
+              href="#"
+              onClick={this.deleteProject.bind(
+                this,
+                this.props.project.jobName
+              )}
+            >
+              X
             </a>
           </p>
         </Card>

@@ -49,7 +49,7 @@ class App extends Component {
   }
   render() {
     if (true) {
-      //this.state.isLoggedIn
+      // this.state.isLoggedIn;
       return (
         <div className="App">
           <NavBar />

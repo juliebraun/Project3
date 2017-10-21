@@ -70,9 +70,12 @@ class AddProject extends Component {
       <div>
         <Row bsClass="row">
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <h2>Create New Job</h2>
-            <form onSubmit={this.handleSubmit.bind(this)}>
-              <div>
+            <h2 className="newjobHeader">Create New Job</h2>
+            <form
+              className="newjobForm"
+              onSubmit={this.handleSubmit.bind(this)}
+            >
+              <div className="newjobLabels">
                 <label>Job Name</label>
                 <br />
                 <input
@@ -94,12 +97,6 @@ class AddProject extends Component {
                   onChange={this.handleInputChange}
                 />
               </div>
-              {/* <div>
-            <label>Priority</label>
-            <br />
-            <select ref="priority">{priorityOptions}</select>
-            <input type="text" ref="priority" />
-          </div> */}
               <div>
                 <label>Instructions</label>
                 <br />
@@ -132,7 +129,7 @@ class AddProject extends Component {
               </div>
               <br />
               <br />
-              <input type="submit" value="Assign" />
+              <input className="assignButton" type="submit" value="Assign" />
             </form>
           </Col>
         </Row>
