@@ -25,15 +25,14 @@ class ProjectItem extends Component {
         >
           {/* id where job name is */}
           <p>
-            <a
-              href="#"
+            <button
               onClick={this.deleteProject.bind(
                 this,
                 this.props.project.jobName
               )}
             >
               X
-            </a>
+            </button>
           </p>
         </Card>
       </Col>

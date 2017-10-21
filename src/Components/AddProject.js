@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import nodemailer from "nodemailer";
 import uuid from "uuid";
 import { Col, Row } from "react-bootstrap";
 
@@ -23,7 +24,8 @@ class AddProject extends Component {
       "Clint Eastwood"
     ]
   };
-
+ 
+  //end nodemailer code
   handleSubmit(e) {
     if (this.refs.name.value === "") {
       alert("Please enter a name for this job");
@@ -48,6 +50,7 @@ class AddProject extends Component {
         .then(data => data.json())
         .then(response => {
           console.log("we got a success post", response);
+          //created this onsubmit event for nodemailer
         })
         .catch(err => {
           console.log("errrrrr", err);
