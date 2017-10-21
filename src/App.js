@@ -48,11 +48,8 @@ class App extends Component {
     });
   }
   render() {
-    if (true) {
-      //commet out if need to take out login
-      this.state.isLoggedIn;
-      //end comment
-
+    // need to replace true with this.state.isLoggedIn
+    if (this.state.isLoggedIn) {
       return (
         <div className="App">
           <NavBar />
@@ -68,6 +65,26 @@ class App extends Component {
     }
   }
 }
+// render() {
+//   if (true) {
+//     //commet out if need to take out login
+//     this.state.isLoggedIn;
+//     //end comment
+
+//     return (
+//       <div className="App">
+//         <NavBar />
+//       </div>
+//     );
+//   } else {
+//     return (
+//       <div className="App">
+//         {this.state.loginPage}
+//         {/* {this.state.uploadScreen} */}
+//       </div>
+//     );
+//   }
+// }
 const style = {
   margin: 15
 };
