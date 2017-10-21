@@ -36,7 +36,7 @@ class Projects extends Component {
               key={project.name}
               project={project}
             />
-            <input className="assignButton" type="submit" value="Dispatch!" />;
+            <input className="dispatchButton" type="submit" value="Dispatch!" />
           </div>
         );
       });

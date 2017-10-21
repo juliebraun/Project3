@@ -62,11 +62,12 @@ app.use(
   })
 );
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+//comment out in order to disable login
+app.use(passport.initialize());
+app.use(passport.session());
 
-// require("./routes/passportroutes.js")(app, passport);
-
+require("./routes/passportroutes.js")(app, passport);
+//end comment
 app.use(express.static("public"));
 app.use("/api/job", jobRouter);
 app.get("*", function(req, res) {
