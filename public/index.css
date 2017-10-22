@@ -167,3 +167,7 @@ img {
   border: outset;
   font-size: 16px;
 }
+.titleProjects {
+  margin: 10px;
+  font-style: bold;
+}

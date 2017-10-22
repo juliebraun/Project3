@@ -13,14 +13,22 @@ class ProjectItem extends Component {
         <Card
           className="projectItem"
           textClassName="white-text"
-          title={this.props.project.jobName}
+          title={
+            <div>
+              <ul className="titleProjects">
+                {this.props.project.jobName}
+                {this.props.project.worker}
+              </ul>
+            </div>
+          }
           reveal={
-            <li className="Project">
+            <ul className="Project">
               {this.props.project.location}
-              {/* {this.props.project.priority} */}
-              {this.props.project.instructions}
-              {this.props.project.worker}
-            </li>
+              <br />
+              {this.props.project.instructions} <br />
+              {/* {this.props.project.worker} */}
+              {/* <br /> */}
+            </ul>
           }
         >
           {/* id where job name is */}
